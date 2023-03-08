@@ -12,14 +12,59 @@
   <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 
-<footer>
-  <button id="start-btn" class="uk-button uk-button-primary uk-align-center uk-width-1-4 uk-button-large">Start</button>
-</footer>
+
 <body>
 
-  <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.3/dist/js/uikit.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.3/dist/js/uikit-icons.min.js"></script>
-  <script src="./assets/js/script.js"></script>
+  <div class="uk-container uk-margin uk-position-center">
+  <div class="uk-container">
+    <nav class="uk-navbar-container uk-padding" uk-navbar>
+          <a class="uk-link-muted" href="leaderboard.html">LEADERBOARD</a>
+    </nav>
+
+    <h1 class="uk-heading-medium uk-text-center uk-padding-large">Trivia Game</h1>
+
+  </div>
+
+  <footer>
+    <button id="start-btn" class="uk-button uk-button-primary uk-align-center uk-width-1-4 uk-button-large">Start</button>
+  </footer>
+
+  
+    <div class="nameSubmit">
+      <form>
+        <p>Enter your name:</p>
+        <input type="name">
+      </form>
+    </div>
+
+    <div class="uk-inline">
+      <button class="uk-button uk-button-default" type="button">Categorys</button>
+      <div uk-dropdown="animation: slide-top; animate-out: true; duration: 700">
+        <ul class="uk-nav uk-dropdown-nav">
+          <li class="uk-arts"><a href="#">Arts & Literature</a></li>
+          <li class="uk-Film & TV"><a href="#">Fim & TV</a></li>
+          <li class="uk-Food & Drink"><a href="#">Food & Drink</a></li>
+          <li class="uk-General Knowledge"><a href="#">General Knowledge</a></li>
+          <li class="uk-Geopgraphy"><a href="#">Geography</a></li>
+          <li class="uk-History"><a href="#">History</a></li>
+          <li class="uk-Music"><a href="#">music</a></li>
+          <li class="uk-sceince"><a href="#">sceince</a></li>
+          <li class="uk-Society & Culture"><a href="#">Society & Culture</a></li>
+          <li class="uk-Sport & Leisure"><a href="#">Sport & Leisure</a></li>
+         
+
+      </div>
+      <div class="uk-inline">
+        <button class="uk-button uk-button-default" type="button">Diffculty</button>
+        <div uk-dropdown="animation: reveal-top; animate-out: true; duration: 700">
+          <ul class="uk-nav uk-dropdown-nav">
+            <li class="uk-Easy"><a href="#">Easy</a></li>
+            <li class="uk-Medium"><a href="#">Medium</a></li>
+            <li class="uk-Hard"><a href="#">Hard</a></li>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.3/dist/js/uikit.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.3/dist/js/uikit-icons.min.js"></script>
+        <script src="./assets/js/script.js"></script>
 </body>
 
 </html>
