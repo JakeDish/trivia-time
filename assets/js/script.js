@@ -19,7 +19,7 @@ var search_term=
 const fetchQuizData = (search_term) => {
     
     fetch(
-      `${trivaApiRoot}=${search_term}&limit=10&region=US&difficulty=${difficulty}`
+      `${trivaApiRoot}+categories${search_term}&limit=10&region=US&difficulty=${difficulty}`
     )
       .then((res) => res.json())
       .then((data) => {

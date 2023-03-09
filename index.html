@@ -7,96 +7,70 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Trivia Game</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.16.3/dist/css/uikit.min.css" />
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./assets/css/reset.css" />
   <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 
 
 <body>
-
-  <div class="uk-container uk-margin uk-position-center">
-  <div class="uk-container">
-    <nav class="uk-navbar-container uk-padding" uk-navbar>
-          <a class="uk-link-muted" href="leaderboard.html">LEADERBOARD</a>
+  
+  <div class="uk-container ">
+    <nav class="uk-navbar-container uk-padding uk-navbar">
+          <a class="uk-link-primary" href="leaderboard.html">LEADERBOARD</a>
     </nav>
 
-    <h1 class="uk-heading-medium uk-text-center uk-padding-large">Trivia Game</h1>
+    <h1 class="uk-heading-medium uk-text-center uk-padding-large uk-text-primary">Trivia Game</h1>
 
+    <!-- FORM -->
+    <form id="startGame" class="uk-width-1-2 uk-align-center">
+      <fieldset class="uk-fieldset">
+    
+        <div class="uk-margin">
+          <input class="uk-input" type="text" placeholder="Name" aria-label="Name">
+        </div>
+
+        <span>Difficulty</span><br/>
+        <div class="uk-margin">
+          <select id="difficulty-select" class="uk-select" aria-label="Select">
+            <option>Easy</option>
+            <option>Medium</option>
+            <option>Hard</option>
+          </select>
+        </div>
+    
+        <span>Category</span><br />
+        <div class="uk-margin">
+          <select id="category-select" class="uk-select" aria-label="Select">
+            <option>All</option>
+            <option>Arts & Literature</option>
+            <option>Film & TV</option>
+            <option>Food & Drink</option>
+            <option>General Knowledge</option>
+            <option>Geography</option>
+            <option>History</option>
+            <option>Music</option>
+            <option>Sceince</option>
+            <option>Society & Culture</option>
+            <option>Sport & Leisure</option>
+          </select>
+        </div>
+
+      </fieldset>
+
+      <button id="start-btn" class="uk-button uk-button-default uk-button-large uk-button-primary">Start</button>
+    </form>
   </div>
 
-  <!-- <footer>
-    <button id="start-btn" class="uk-button uk-button-primary uk-align-center uk-width-1-4 uk-button-large">Start</button>
-  </footer> -->
-
-  
-    <div class="nameSubmit">
-      <form id="startGame">
-        <p>Enter your name:</p>
-        <input type="name">
-
-        <!-- start button -->
-        <button id="start-btn" class="uk-button uk-button-primary uk-align-center uk-width-1-4 uk-button-large">Start</button>
-       
-        <!-- category dropdown -->
-        <div class="uk-inline">
-          <button class="uk-button uk-button-default" type="button">Categories</button>
-          <div uk-dropdown="animation: slide-top; animate-out: true; duration: 700">
-            <ul class="uk-nav uk-dropdown-nav">
-              <li class="arts_and_literature"><a href="#">Arts & Literature</a></li>
-              <li class="film_and_tv"><a href="#">Fim & TV</a></li>
-              <li class="food_and_drink"><a href="#">Food & Drink</a></li>
-              <li class="general_knowledge"><a href="#">General Knowledge</a></li>
-              <li class="geopgraphy"><a href="#">Geography</a></li>
-              <li class="history"><a href="#">History</a></li>
-              <li class="music"><a href="#">Music</a></li>
-              <li class="sceince"><a href="#">Sceince</a></li>
-              <li class="society_and-culture"><a href="#">Society & Culture</a></li>
-              <li class="sport_and_leisure"><a href="#">Sport & Leisure</a></li>
-        <!-- difficulty dropdown -->
-
-        </div>
-        <div class="uk-inline">
-          <button class="uk-button uk-button-default" type="button">Diffculty</button>
-          <div uk-dropdown="animation: reveal-top; animate-out: true; duration: 700">
-            <ul class="uk-nav uk-dropdown-nav">
-              <li class="uk-Easy"><a href="#">Easy</a></li>
-              <li class="uk-Medium"><a href="#">Medium</a></li>
-              <li class="uk-Hard"><a href="#">Hard</a></li>
-          </div>
-
-       
-      </form>
-    </div>
-
-    <!-- <div class="uk-inline">
-      <button class="uk-button uk-button-default" type="button">Categories</button>
-      <div uk-dropdown="animation: slide-top; animate-out: true; duration: 700">
-        <ul class="uk-nav uk-dropdown-nav">
-          <li class="arts_and_literature"><a href="#">Arts & Literature</a></li>
-          <li class="film_and_tv"><a href="#">Fim & TV</a></li>
-          <li class="food_and_drink"><a href="#">Food & Drink</a></li>
-          <li class="general_knowledge"><a href="#">General Knowledge</a></li>
-          <li class="geopgraphy"><a href="#">Geography</a></li>
-          <li class="history"><a href="#">History</a></li>
-          <li class="music"><a href="#">Music</a></li>
-          <li class="sceince"><a href="#">Sceince</a></li>
-          <li class="society_and-culture"><a href="#">Society & Culture</a></li>
-          <li class="sport_and_leisure"><a href="#">Sport & Leisure</a></li>
-         
-
-      </div>-->
-      <!-- <div class="uk-inline">
-        <button class="uk-button uk-button-default" type="button">Diffculty</button>
-        <div uk-dropdown="animation: reveal-top; animate-out: true; duration: 700">
-          <ul class="uk-nav uk-dropdown-nav">
-            <li class="uk-Easy"><a href="#">Easy</a></li>
-            <li class="uk-Medium"><a href="#">Medium</a></li>
-            <li class="uk-Hard"><a href="#">Hard</a></li>
-        </div> -->
         <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.3/dist/js/uikit.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.3/dist/js/uikit-icons.min.js"></script>
         <script src="./assets/js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.3/dist/js/uikit.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.3/dist/js/uikit-icons.min.js"></script>
+  <script src="./assets/js/script.js"></script>
+
 </body>
 
 </html>
