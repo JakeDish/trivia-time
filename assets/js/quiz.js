@@ -22,9 +22,10 @@ fetch('https://the-trivia-api.com/api/questions?limit=10')
     document.getElementById("a2").innerText = shuffled[1]
     document.getElementById("a3").innerText = shuffled[2]
     document.getElementById("a4").innerText = shuffled[3]
-    const checkAnswer = (event) => {
-      if (event.target.value)
-    }
+    //work in progress
+    //const checkAnswer = (event) => {
+      //if (event.target.value)
+    //}
     document.getElementById("question-number").innerText = ''
   
       }
