@@ -11,7 +11,7 @@ const questionTitle = document.getElementById("question-title");
 
 document.getElementById("answer-buttons").addEventListener('click', function (event) {    
   var guess = event.target.textContent;
-  if (rightGuesses + wrongGuesses < 2) {
+  if (rightGuesses + wrongGuesses < 9) {
     if (rightAnswers.includes(guess)) {
       console.log('right')
       rightGuesses++
