@@ -1,3 +1,9 @@
 .uk-first-column{
 text-align: center;
 }
+.section{
+border-style:outset;
+border-width: 5px;
+border-color: aqua;
+ padding: 5px;
+}
