@@ -5,7 +5,7 @@ var quizOver = false
 
 
 function displayQuestion() {
-  if (quizOver = false) {
+  if (quizOver === false) {
 fetch('https://the-trivia-api.com/api/questions?limit=10')
   .then((response) => response.json())
   .then((data) => {
