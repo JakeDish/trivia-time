@@ -5,11 +5,13 @@ var rightAnswers = []
 var rightGuesses = 0
 var wrongGuesses = 0
 var questionNum = 1
+const container = document.getElementById("container");
+const questionTitle = document.getElementById("question-title");
 
 
 document.getElementById("answer-buttons").addEventListener('click', function (event) {    
   var guess = event.target.textContent;
-  if (rightGuesses + wrongGuesses < 9) {
+  if (rightGuesses + wrongGuesses < 2) {
     if (rightAnswers.includes(guess)) {
       console.log('right')
       rightGuesses++
@@ -50,7 +52,8 @@ fetch('https://the-trivia-api.com/api/questions?limit=1')
   }
 
 function endQuiz() {
-  window.location.href = "results.html"
+  container.classList.add("hidden");
+  questionTitle.classList.add("hidden");
 }
 
   displayQuestion ()  
