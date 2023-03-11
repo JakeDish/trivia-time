@@ -8,8 +8,16 @@ var questionNum = 1;
 const container = document.getElementById("container");
 const questionTitle = document.getElementById("question-title");
 
+// Get the name passed into url
+var url = window.location.href.split("?")[1];
+
 // Set array for playerStats and set existing data from localStorage
 var playerStats = [];
+var player = {
+  name: "",
+  score: "",
+};
+
 playerStats = JSON.parse(localStorage.getItem("players"));
 
 document
@@ -57,7 +65,9 @@ function displayQuestion() {
 function endQuiz() {
   container.classList.add("hidden");
   questionTitle.classList.add("hidden");
-  playerStats.push(rightGuesses);
+  player.name = url;
+  player.score = rightGuesses;
+  playerStats.push(player);
   localStorage.setItem("players", JSON.stringify(playerStats));
 }
 
