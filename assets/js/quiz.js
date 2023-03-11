@@ -18,7 +18,8 @@ var player = {
   score: "",
 };
 
-playerStats = JSON.parse(localStorage.getItem("players"));
+// get fresh content from localstorage
+playerStatsUpdated = JSON.parse(localStorage.getItem("players"));
 
 document
   .getElementById("answer-buttons")
@@ -67,8 +68,14 @@ function endQuiz() {
   questionTitle.classList.add("hidden");
   player.name = url;
   player.score = rightGuesses;
-  playerStats.push(player);
-  localStorage.setItem("players", JSON.stringify(playerStats));
+  // If array from localstorage is emtpy push to origina array, otherwise push to updated arr
+  if (playerStatsUpdated === null) {
+    playerStats.push(player);
+    localStorage.setItem("players", JSON.stringify(playerStats));
+  } else {
+    playerStatsUpdated.push(player);
+    localStorage.setItem("players", JSON.stringify(playerStatsUpdated));
+  }
 }
 
 displayQuestion();
