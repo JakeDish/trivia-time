@@ -17,6 +17,19 @@ var searchInputVal = localStorage.getItem("searchInputVal");
 var difficulty = localStorage.getItem("difficulty");
 var search_term = localStorage.getItem("search_term");
 
+// Get the name passed into url
+var url = window.location.href.split("?")[1];
+
+// Set array for playerStats and set existing data from localStorage
+var playerStats = [];
+var player = {
+  name: "",
+  score: "",
+};
+
+// get fresh content from localstorage
+playerStatsUpdated = JSON.parse(localStorage.getItem("players"));
+
 document
   .getElementById("answer-buttons")
   .addEventListener("click", function (event) {
@@ -68,6 +81,16 @@ function endQuiz() {
   document.getElementById("image").classList.remove("hidden");
   console.log(score);
   showGif();
+  player.name = url;
+  player.score = rightGuesses;
+  // If array from localstorage is emtpy push to origina array, otherwise push to updated arr
+  if (playerStatsUpdated === null) {
+    playerStats.push(player);
+    localStorage.setItem("players", JSON.stringify(playerStats));
+  } else {
+    playerStatsUpdated.push(player);
+    localStorage.setItem("players", JSON.stringify(playerStatsUpdated));
+  }
 }
 
 function startTimer() {
