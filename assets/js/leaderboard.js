@@ -22,10 +22,12 @@ for (var i = 0; i < playerStatsUpdated.length; i++) {
   leaderContainer.append(cardEl);
 }
 
-document.getElementById("clear-leaderboard-btn").addEventListener("click", function (event){
-  var cards = document.getElementsByClassName("removable-card")
-  while(cards.length > 0){
-    cards[0].parentNode.removeChild(cards[0])
-  }
-  localStorage.clear()
-})
+document
+  .getElementById("clear-leaderboard-btn")
+  .addEventListener("click", function (event) {
+    var cards = document.getElementsByClassName("removable-card");
+    while (cards.length > 0) {
+      cards[0].parentNode.removeChild(cards[0]);
+    }
+    localStorage.clear();
+  });
