@@ -4,15 +4,18 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./assets/css/reset.css" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
   <title>Trivia Quiz</title>
   
 </head>
 <body>
   <header>
-    <h1>Question #<span id="question-number"></span></h1>
+    <h1 id="question-title">Question #<span id="question-number"></span></h1>
+    <h2 id="time-title">Time Remaining: <span id="timePara"></span></h2>
+    <img id="image">
   </header>
-
-  <div class="container">
+  <div id="container">
     <div id="question-container"><span id="question-content"></span>
       <div id="answer-buttons">
         <button class="btn" id="a1">Answer 1</button>
@@ -22,12 +25,12 @@
       </div>
     </div>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.3/dist/js/uikit.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.3/dist/js/uikit-icons.min.js"></script>
+  <!-- <script src="./assets/js/results.js"></script> -->
+  <script src="./assets/js/quiz.js"></script>
+        
+<!----       <script src="./assets/js/script.js"></script> //-->
 
-
-
-
-        <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.3/dist/js/uikit.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.3/dist/js/uikit-icons.min.js"></script>
-        <script src="./assets/js/quiz.js"></script>
 </body>
 </html>
