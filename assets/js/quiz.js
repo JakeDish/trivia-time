@@ -80,7 +80,7 @@ function endQuiz() {
   let score = rightGuesses;
   document.getElementById("image").classList.remove("hidden");
   console.log(score);
-  showGif();
+  displayGiphy(rightGuesses);
   player.name = url;
   player.score = rightGuesses;
   // If array from localstorage is emtpy push to origina array, otherwise push to updated arr
@@ -108,3 +108,35 @@ function startTimer() {
 
 startTimer();
 displayQuestion();
+
+// Display Giphy
+function displayGiphy(score) {
+  var searchTerm = "";
+  if (score > 7) {
+    result = "winner";
+    searchTerm = "winner";
+  } else if (score > 5) {
+    result = "almsot had it";
+    searchTerm = "almost had it";
+  } else {
+    result = "loser";
+    searchTerm = "loser";
+  }
+  var giphyApiKey = "vkWBAa2LfhiieA9v1VVSP5pwtU8MRTB4";
+
+  fetch(
+    `https://api.giphy.com/v1/gifs/search?api_key=${giphyApiKey}&q=${searchTerm}&rating=pg-13`
+  )
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (result) {
+      // display_image(data.message);
+      var image_url = result.data[0].images.downsized_medium.url;
+      display_image(image_url);
+    });
+  function display_image(image_url) {
+    console.log(image_url);
+    document.getElementById("image").src = image_url;
+  }
+}
