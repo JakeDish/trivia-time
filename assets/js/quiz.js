@@ -3,7 +3,7 @@ var rightA;
 var shuffled;
 var rightAnswers = [];
 var rightGuesses = 0;
-var score
+var score;
 var wrongGuesses = 0;
 var questionNum = 1;
 const container = document.getElementById("container");
@@ -19,7 +19,7 @@ var difficulty = localStorage.getItem("difficulty");
 var search_term = localStorage.getItem("search_term");
 
 // Get the name passed into url
-var url = window.location.href.split("?")[1];
+var url = window.location.href.split("?")[1].replace("%20", " ");
 
 // Set array for playerStats and set existing data from localStorage
 var playerStats = [];
