@@ -26,24 +26,3 @@ if (score > 7) {
   result = "YAY";
 }
 }
-// timer and game tracker
-var timePara = document.getElementById("timePara");
-var timeLeft = 100;
-var gameComplete = false;
-
-// timer
-function startTimer() {
-  var timeInterval = setInterval(function () {
-    timeLeft--;
-    timePara.textContent = timeLeft;
-    sfxCount.play();
-
-    if (timeLeft === 0 || gameComplete === true) {
-      clearInterval(timeInterval);
-      endQuiz()
-      return
-    }
-  }, 1000);
-}
-
-//startTimer();

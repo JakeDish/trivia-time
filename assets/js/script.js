@@ -1,6 +1,3 @@
-var sfxCount = new Audio("assets/sound/Jeopardy-theme-song.mp3");
-var sfxWrong = new Audio("assets/sound/insect-buzz-wrong.wav");
-var sfxRight = new Audio("assets/sound/hm-whoo-hoo.mp3");
 var searchInputVal = '';
 var difficulty = '';
 var search_term = '';

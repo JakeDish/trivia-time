@@ -10,7 +10,6 @@ const questionTitle = document.getElementById("question-title");
 const timeTitle = document.getElementById("time-title");
 var sfxWrong = new Audio("assets/sound/insect-buzz-wrong.wav");
 var sfxRight = new Audio("assets/sound/hm-whoo-hoo.mp3");
-
 var timePara = document.getElementById("timePara");
 var timeLeft = 100;
 var gameComplete = false;
