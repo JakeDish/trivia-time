@@ -38,9 +38,11 @@ document
     if (rightAnswers.includes(guess)) {
       sfxRight.play();
       rightGuesses++;
+      document.getElementById("right-guesses").textContent=rightGuesses;
     } else {
       sfxWrong.play();
       wrongGuesses++;
+      document.getElementById("wrong-guesses").textContent = wrongGuesses;
     }
     questionNum++;
     if (questionNum < 11) {
