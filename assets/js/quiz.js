@@ -42,7 +42,8 @@ document
     } else {
       sfxWrong.play();
       wrongGuesses++;
-      document.getElementById("wrong-guesses").textContent = wrongGuesses;
+      document.getElementById("wrong-guesses").
+      textContent=wrongGuesses;
     }
     questionNum++;
     if (questionNum < 11) {
