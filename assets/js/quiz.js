@@ -86,6 +86,8 @@ function endQuiz() {
   container.classList.add("hidden");
   questionTitle.classList.add("hidden");
   timeTitle.classList.add("hidden");
+  document.getElementById("leaderboard-link").classList.remove("hidden");
+  document.getElementById("final-score").textContent = `Your Score: ${score}`; 
   document.getElementById("image").classList.remove("hidden");
   displayGiphy(rightGuesses);
   player.name = url;
@@ -139,7 +141,7 @@ function displayGiphy(score) {
     })
     .then(function (result) {
       // display_image(data.message);
-      var image_url = result.data[0].images.downsized_medium.url;
+      var image_url = result.data[5].images.downsized_medium.url;
       display_image(image_url);
     });
   function display_image(image_url) {
