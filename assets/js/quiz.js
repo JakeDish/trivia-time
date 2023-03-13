@@ -3,7 +3,7 @@ var rightA;
 var shuffled;
 var rightAnswers = [];
 var rightGuesses = 0;
-var score
+var score;
 var wrongGuesses = 0;
 var questionNum = 1;
 const container = document.getElementById("container");
@@ -26,6 +26,7 @@ var playerStats = [];
 var player = {
   name: "",
   score: "",
+  image: "",
 };
 
 // get fresh content from localstorage
@@ -75,29 +76,28 @@ function displayQuestion() {
 
 function endQuiz() {
   if (timeLeft >= 80) {
-    score = rightGuesses + 2
-  }
-  else if (timeLeft >= 70) {
-    score = rightGuesses + 1
+    score = rightGuesses + 2;
+  } else if (timeLeft >= 70) {
+    score = rightGuesses + 1;
   } else {
-    score = rightGuesses
+    score = rightGuesses;
   }
   gameComplete === true;
   container.classList.add("hidden");
   questionTitle.classList.add("hidden");
   timeTitle.classList.add("hidden");
   document.getElementById("image").classList.remove("hidden");
-  displayGiphy(rightGuesses);
   player.name = url;
   player.score = rightGuesses;
-  // If array from localstorage is emtpy push to origina array, otherwise push to updated arr
-  if (playerStatsUpdated === null) {
-    playerStats.push(player);
-    localStorage.setItem("players", JSON.stringify(playerStats));
-  } else {
-    playerStatsUpdated.push(player);
-    localStorage.setItem("players", JSON.stringify(playerStatsUpdated));
-  }
+  displayGiphy(rightGuesses, name);
+  // // If array from localstorage is emtpy push to origina array, otherwise push to updated arr
+  // if (playerStatsUpdated === null) {
+  //   playerStats.push(player);
+  //   localStorage.setItem("players", JSON.stringify(playerStats));
+  // } else {
+  //   playerStatsUpdated.push(player);
+  //   localStorage.setItem("players", JSON.stringify(playerStatsUpdated));
+  // }
 }
 
 function startTimer() {
@@ -117,7 +117,7 @@ startTimer();
 displayQuestion();
 
 // Display Giphy
-function displayGiphy(score) {
+function displayGiphy(score, name) {
   var searchTerm = "";
   if (score > 7) {
     result = "winner";
@@ -141,6 +141,17 @@ function displayGiphy(score) {
       // display_image(data.message);
       var image_url = result.data[0].images.downsized_medium.url;
       display_image(image_url);
+
+      player.image = image_url;
+
+      // If array from localstorage is emtpy push to origina array, otherwise push to updated arr
+      if (playerStatsUpdated === null) {
+        playerStats.push(player);
+        localStorage.setItem("players", JSON.stringify(playerStats));
+      } else {
+        playerStatsUpdated.push(player);
+        localStorage.setItem("players", JSON.stringify(playerStatsUpdated));
+      }
     });
   function display_image(image_url) {
     console.log(image_url);
