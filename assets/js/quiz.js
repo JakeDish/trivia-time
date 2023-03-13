@@ -3,6 +3,7 @@ var rightA;
 var shuffled;
 var rightAnswers = [];
 var rightGuesses = 0;
+var score
 var wrongGuesses = 0;
 var questionNum = 1;
 const container = document.getElementById("container");
@@ -73,13 +74,19 @@ function displayQuestion() {
 }
 
 function endQuiz() {
+  if (timeLeft >= 80) {
+    score = rightGuesses + 2
+  }
+  else if (timeLeft >= 70) {
+    score = rightGuesses + 1
+  } else {
+    score = rightGuesses
+  }
   gameComplete === true;
   container.classList.add("hidden");
   questionTitle.classList.add("hidden");
   timeTitle.classList.add("hidden");
-  let score = rightGuesses;
   document.getElementById("image").classList.remove("hidden");
-  console.log(score);
   displayGiphy(rightGuesses);
   player.name = url;
   player.score = rightGuesses;
