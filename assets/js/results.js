@@ -1,6 +1,6 @@
 // timer and game tracker
 var timePara = document.getElementById("timePara");
-var timeLeft = 100;
+var timeLeft = 10;
 var gameComplete = false;
 
 // timer
