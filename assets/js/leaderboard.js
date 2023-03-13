@@ -16,6 +16,7 @@ for (var i = 0; i < playerStatsUpdated.length; i++) {
       <div class="uk-card uk-card-default uk-card-body ">
         <h2 class="uk-card-title uk-margin-bottom">${playerStatsUpdated[i].name}</h2>
         <h3 class="uk-card-title uk-text-success uk-text-bolder">${playerStatsUpdated[i].score}/10</h3>
+        <img src=${playerStatsUpdated[i].image} />
       </div>
     </div>
   `;
