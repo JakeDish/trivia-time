@@ -90,14 +90,6 @@ function endQuiz() {
   player.name = url;
   player.score = rightGuesses;
   displayGiphy(rightGuesses, name);
-  // // If array from localstorage is emtpy push to origina array, otherwise push to updated arr
-  // if (playerStatsUpdated === null) {
-  //   playerStats.push(player);
-  //   localStorage.setItem("players", JSON.stringify(playerStats));
-  // } else {
-  //   playerStatsUpdated.push(player);
-  //   localStorage.setItem("players", JSON.stringify(playerStatsUpdated));
-  // }
 }
 
 function startTimer() {
@@ -138,8 +130,9 @@ function displayGiphy(score, name) {
       return response.json();
     })
     .then(function (result) {
-      // display_image(data.message);
-      var image_url = result.data[0].images.downsized_medium.url;
+      var ranNum = Math.floor(Math.random() * result.data.length);
+
+      var image_url = result.data[ranNum].images.downsized_medium.url;
       display_image(image_url);
 
       player.image = image_url;
