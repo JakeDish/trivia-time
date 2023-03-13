@@ -3,7 +3,7 @@ var rightA;
 var shuffled;
 var rightAnswers = [];
 var rightGuesses = 0;
-var score
+var score;
 var wrongGuesses = 0;
 var questionNum = 1;
 const container = document.getElementById("container");
@@ -19,13 +19,14 @@ var difficulty = localStorage.getItem("difficulty");
 var search_term = localStorage.getItem("search_term");
 
 // Get the name passed into url
-var url = window.location.href.split("?")[1];
+var url = window.location.href.split("?")[1].replace("%20", " ");
 
 // Set array for playerStats and set existing data from localStorage
 var playerStats = [];
 var player = {
   name: "",
   score: "",
+  image: "",
 };
 
 // get fresh content from localstorage
@@ -75,12 +76,11 @@ function displayQuestion() {
 
 function endQuiz() {
   if (timeLeft >= 80) {
-    score = rightGuesses + 2
-  }
-  else if (timeLeft >= 70) {
-    score = rightGuesses + 1
+    score = rightGuesses + 2;
+  } else if (timeLeft >= 70) {
+    score = rightGuesses + 1;
   } else {
-    score = rightGuesses
+    score = rightGuesses;
   }
   gameComplete === true;
   container.classList.add("hidden");
@@ -89,17 +89,9 @@ function endQuiz() {
   document.getElementById("leaderboard-link").classList.remove("hidden");
   document.getElementById("final-score").textContent = `Your Score: ${score}`; 
   document.getElementById("image").classList.remove("hidden");
-  displayGiphy(rightGuesses);
   player.name = url;
   player.score = rightGuesses;
-  // If array from localstorage is emtpy push to origina array, otherwise push to updated arr
-  if (playerStatsUpdated === null) {
-    playerStats.push(player);
-    localStorage.setItem("players", JSON.stringify(playerStats));
-  } else {
-    playerStatsUpdated.push(player);
-    localStorage.setItem("players", JSON.stringify(playerStatsUpdated));
-  }
+  displayGiphy(rightGuesses, name);
 }
 
 function startTimer() {
@@ -119,7 +111,7 @@ startTimer();
 displayQuestion();
 
 // Display Giphy
-function displayGiphy(score) {
+function displayGiphy(score, name) {
   var searchTerm = "";
   if (score > 7) {
     result = "winner";
@@ -140,9 +132,21 @@ function displayGiphy(score) {
       return response.json();
     })
     .then(function (result) {
-      // display_image(data.message);
-      var image_url = result.data[5].images.downsized_medium.url;
+      var ranNum = Math.floor(Math.random() * result.data.length);
+
+      var image_url = result.data[ranNum].images.downsized_medium.url;
       display_image(image_url);
+
+      player.image = image_url;
+
+      // If array from localstorage is emtpy push to origina array, otherwise push to updated arr
+      if (playerStatsUpdated === null) {
+        playerStats.push(player);
+        localStorage.setItem("players", JSON.stringify(playerStats));
+      } else {
+        playerStatsUpdated.push(player);
+        localStorage.setItem("players", JSON.stringify(playerStatsUpdated));
+      }
     });
   function display_image(image_url) {
     console.log(image_url);
