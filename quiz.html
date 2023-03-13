@@ -4,14 +4,18 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./assets/css/reset.css" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
   <title>Trivia Quiz</title>
 </head>
 <body>
   <header>
-    <h1>Question #<span id="question-number"></span></h1>
+    <h1 id="question-title">Question #<span id="question-number"></span></h1>
   </header>
 04
   <div class="container">
+
+  <div id="container">
     <div id="question-container"><span id="question-content"></span>
       <div id="answer-buttons">
         <button class="btn" id="a1">Answer 1</button>
@@ -19,10 +23,6 @@
         <button class="btn" id="a3">Answer 3</button>
         <button class="btn" id="a4">Answer 4</button>
       </div>
-    </div>
-    <div class="controls">
-      <button id="previous-btn" class="previous-btn btn">Previous</button>
-      <button id="next-btn" class="next-btn btn">Next</button>
     </div>
   </div>
 

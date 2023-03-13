@@ -1,3 +1,22 @@
 body {
   font-family: 'Raleway', sans-serif;
+  height:100vh;
+  color:white;
+  background: rgb(36,0,32);
+  background: radial-gradient(circle, rgba(95,2,190,1) 0%, rgba(57,9,121,1) 56%, rgba(71,3,64,1) 100%);
 }
+
+.heading{
+  font-family: 'Fugaz One', cursive;
+  color: white;
+}
+
+.uk-navbar-container:not(.uk-navbar-transparent) {
+    background: none;
+}
+
+.hidden {
+  display: none;
+}
+
+
