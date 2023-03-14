@@ -19,4 +19,8 @@ body {
   display: none;
 }
 
+.leaderboard{
+  background: rgb(36,0,32);
+  background: radial-gradient(circle, rgba(95,2,190,1) 0%, rgba(57,9,121,1) 56%, rgba(71,3,64,1) 100%);
+}
 
