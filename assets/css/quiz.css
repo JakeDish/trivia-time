@@ -1,0 +1,34 @@
+body{
+  font-family: 'Raleway', sans-serif;display: flex;
+  justify-content: center;
+
+}
+
+.header  {
+  font-family: 'Fugaz One';
+  font-size: xx-large;
+  margin: 10;
+	padding: 10;
+	border: 10;
+  display: flex;
+  justify-content: center;
+}
+
+
+.question  {
+font-size: larger;
+padding: 10%;
+display: flex;
+align-items: center;
+
+}
+
+.btn {
+  padding: 14px 80px;
+  margin: 10px;
+  font-size: large;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: flex-end;
+}

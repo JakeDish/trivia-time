@@ -26,6 +26,7 @@ var playerStats = [];
 var player = {
   name: "",
   score: "",
+  image: "",
 };
 
 // get fresh content from localstorage
@@ -114,19 +115,12 @@ function endQuiz() {
   container.classList.add("hidden");
   questionTitle.classList.add("hidden");
   timeTitle.classList.add("hidden");
+  document.getElementById("leaderboard-link").classList.remove("hidden");
+  document.getElementById("final-score").textContent = `Your Score: ${score}`; 
   document.getElementById("image").classList.remove("hidden");
-  displayGiphy(rightGuesses);
   player.name = url;
   player.score = rightGuesses;
-  console.log(rightGuesses, player.score)
-  // If array from localstorage is emtpy push to origina array, otherwise push to updated arr
-  if (playerStatsUpdated === null) {
-    playerStats.push(player);
-    localStorage.setItem("players", JSON.stringify(playerStats));
-  } else {
-    playerStatsUpdated.push(player);
-    localStorage.setItem("players", JSON.stringify(playerStatsUpdated));
-  }
+  displayGiphy(rightGuesses, name);
 }
 
 function startTimer() {
@@ -146,7 +140,7 @@ startTimer();
 displayQuestion();
 
 // Display Giphy
-function displayGiphy(score) {
+function displayGiphy(score, name) {
   var searchTerm = "";
   if (score > 7) {
     result = "winner";
@@ -167,9 +161,21 @@ function displayGiphy(score) {
       return response.json();
     })
     .then(function (result) {
-      // display_image(data.message);
-      var image_url = result.data[0].images.downsized_medium.url;
+      var ranNum = Math.floor(Math.random() * result.data.length);
+
+      var image_url = result.data[ranNum].images.downsized_medium.url;
       display_image(image_url);
+
+      player.image = image_url;
+
+      // If array from localstorage is emtpy push to origina array, otherwise push to updated arr
+      if (playerStatsUpdated === null) {
+        playerStats.push(player);
+        localStorage.setItem("players", JSON.stringify(playerStats));
+      } else {
+        playerStatsUpdated.push(player);
+        localStorage.setItem("players", JSON.stringify(playerStatsUpdated));
+      }
     });
   function display_image(image_url) {
     console.log(image_url);
