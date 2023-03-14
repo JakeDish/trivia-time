@@ -86,6 +86,8 @@ function endQuiz() {
   container.classList.add("hidden");
   questionTitle.classList.add("hidden");
   timeTitle.classList.add("hidden");
+  document.getElementById("leaderboard-link").classList.remove("hidden");
+  document.getElementById("final-score").textContent = `Your Score: ${score}`; 
   document.getElementById("image").classList.remove("hidden");
   player.name = url;
   player.score = rightGuesses;
