@@ -10,25 +10,31 @@ body{
   margin: 10;
 	padding: 10;
 	border: 10;
-  display: flex;
-  justify-content: center;
 }
 
 
 .question  {
-font-size: larger;
-padding: 10%;
-display: flex;
-align-items: center;
-
+  margin: 40px 0;
 }
 
 .btn {
   padding: 14px 80px;
-  margin: 10px;
+  margin-bottom: 20px;
   font-size: large;
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
   align-items: flex-end;
+}
+
+#leaderboard-link a{
+  color:white;
+}
+
+#main-q-container{
+  width:80%;
+}
+
+#final-score{
+  margin-top:50px;
 }
