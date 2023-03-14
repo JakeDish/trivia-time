@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,11 +9,17 @@
   <link rel="stylesheet" href="./assets/css/style.css" />
   <title>Trivia Quiz</title>
 </head>
+
 <body>
   <header>
+      <nav id="leaderboard-link" class="uk-navbar-container uk-padding uk-navbar hidden">
+        <a class="uk-link-primary" href="leaderboard.html">LEADERBOARD</a>
+      </nav>
+      <div id="final-score"> </div>
     <h1 id="question-title">Question #<span id="question-number"></span></h1>
     <h2 id="time-title">Time Remaining: <span id="timePara"></span></h2>
     <img id="image">
+  
   </header>
   <div id="container">
     <div id="question-container"><span id="question-content"></span>
@@ -28,8 +35,8 @@
   <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.3/dist/js/uikit-icons.min.js"></script>
   <!-- <script src="./assets/js/results.js"></script> -->
   <script src="./assets/js/quiz.js"></script>
-        
-<!----       <script src="./assets/js/script.js"></script> //-->
+
 
 </body>
+
 </html>
