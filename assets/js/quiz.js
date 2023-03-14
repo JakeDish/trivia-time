@@ -109,7 +109,7 @@ function endQuiz() {
   } else {
     rightGuesses = rightGuesses
   }
-  
+  score = rightGuesses
   gameComplete === true;
   container.classList.add("hidden");
   questionTitle.classList.add("hidden");
