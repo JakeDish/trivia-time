@@ -53,9 +53,10 @@ document
   });
 
 function displayQuestion() {
-  fetch(
-    `https://the-trivia-api.com/api/questions?categories=${search_term}&limit=1&difficulty=${difficulty}`
-  )
+  if (difficulty === 'none') {
+    fetch(
+    `https://the-trivia-api.com/api/questions?categories=${search_term}&limit=1` 
+    )
     .then((response) => response.json())
     .then((data) => {
       for (let i = 0; i < data.length; i++) {
@@ -72,17 +73,45 @@ function displayQuestion() {
         document.getElementById("a4").innerText = shuffled[3];
         document.getElementById("question-number").innerText = questionNum;
       }
-    });
+    }
+    )
+  }
+  else {
+    fetch(
+    `https://the-trivia-api.com/api/questions?categories=${search_term}&limit=1&difficulty=${difficulty}`
+    )
+    .then((response) => response.json())
+    .then((data) => {
+      for (let i = 0; i < data.length; i++) {
+        let wrongA = data[i].incorrectAnswers;
+        let rightA = data[i].correctAnswer;
+        rightAnswers.push(rightA);
+        var choices = wrongA.concat(rightA);
+        let shuffled = choices.sort((a, b) => 0.5 - Math.random());
+        document.getElementById("question-content").innerText =
+          data[i].question;
+        document.getElementById("a1").innerText = shuffled[0];
+        document.getElementById("a2").innerText = shuffled[1];
+        document.getElementById("a3").innerText = shuffled[2];
+        document.getElementById("a4").innerText = shuffled[3];
+        document.getElementById("question-number").innerText = questionNum;
+      }
+    }
+    )
+  };
 }
 
 function endQuiz() {
   if (timeLeft >= 80) {
-    score = rightGuesses + 2;
-  } else if (timeLeft >= 70) {
-    score = rightGuesses + 1;
-  } else {
-    score = rightGuesses;
+    rightGuesses++
+    rightGuesses++
   }
+  else if (timeLeft >= 70) {
+    rightGuesses++
+  } else {
+    rightGuesses = rightGuesses
+  }
+  score = rightGuesses
   gameComplete === true;
   container.classList.add("hidden");
   mainQcontainer.classList.add("hidden");
