@@ -7,6 +7,7 @@ var score;
 var wrongGuesses = 0;
 var questionNum = 1;
 const container = document.getElementById("container");
+const mainQcontainer = document.getElementById("main-q-container");
 const questionTitle = document.getElementById("question-title");
 const timeTitle = document.getElementById("time-title");
 var sfxWrong = new Audio("assets/sound/insect-buzz-wrong.wav");
@@ -84,10 +85,11 @@ function endQuiz() {
   }
   gameComplete === true;
   container.classList.add("hidden");
+  mainQcontainer.classList.add("hidden");
   questionTitle.classList.add("hidden");
   timeTitle.classList.add("hidden");
   document.getElementById("leaderboard-link").classList.remove("hidden");
-  document.getElementById("final-score").textContent = `Your Score: ${score}`; 
+  document.getElementById("final-score").textContent = `Your Score: ${score}`;
   document.getElementById("image").classList.remove("hidden");
   player.name = url;
   player.score = rightGuesses;

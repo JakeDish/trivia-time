@@ -14,20 +14,21 @@
 
 <body>
   <header class="header">
-      <nav id="leaderboard-link" class="uk-navbar-container uk-padding uk-navbar hidden">
-        <a class="uk-link-primary" href="leaderboard.html">LEADERBOARD</a>
-      </nav>
-      <div id="final-score"> </div>
-    <h1 id="question-title">Question #<span id="question-number"></span></h1>
-    <h2 id="time-title">Time Remaining: <span id="timePara"></span></h2>
+    <nav id="leaderboard-link" class="uk-navbar-container uk-padding uk-navbar hidden">
+        <a class="uk-link-primary" href="leaderboard.html">VIEW LEADERBOARD</a>
+    </nav>
+    <div id="final-score"> </div>
     <img id="image">
-  
   </header>
 
-  <div class="container">
+
+  <div id="main-q-container" class="uk-container">
+
+    <h1 id="question-title">Question #<span id="question-number"></span></h1>
+    <h3 id="time-title">Time Remaining: <span id="timePara"></span></h3>
+
     <div id="container">
-      <div id="question-container" class="question"><span id="question-content"></span>
-      </div>
+      <h1 id="question-container" class="question uk-text-large uk-margin-medium-top uk-margin-medium-bottom"><span id="question-content"></span></h1>
       <div id="answer-buttons" class="answer-buttons">
         <button class="btn" id="a1">Answer 1</button>
         <button class="btn" id="a2">Answer 2</button>
